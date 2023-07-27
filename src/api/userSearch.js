@@ -6,7 +6,7 @@ class UserSearchAPI extends GitHubAPI {
       return await this.octokit.request(
         `GET /search/users?q=${encodeURIComponent(`${userName} type:user`)}${
           sort ? '&sort=' + encodeURIComponent(sort) : ''
-        }${order ? '$order=' + encodeURIComponent(order) : ''}`,
+        }${order ? '&order=' + encodeURIComponent(order) : ''}`,
         {
           headers: {
             'X-GitHub-Api-Version': '2022-11-28',
