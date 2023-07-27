@@ -1,10 +1,10 @@
 import './App.css';
-import SearchController from './controllers/SearchController';
+import UsersSearchPage from './components/pages/UsersSearchPage/UsersSearchPage';
 
 function App() {
   return (
     <div className="App">
-      <SearchController />
+      <UsersSearchPage />
     </div>
   );
 }

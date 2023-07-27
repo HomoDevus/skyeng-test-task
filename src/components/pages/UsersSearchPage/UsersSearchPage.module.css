@@ -1,0 +1,9 @@
+.pageContainer {
+    margin: 0 auto;
+    padding: 2.5rem;
+    max-width: 31.25rem;
+}
+
+.searchContainer {
+    margin-bottom: 1.25rem;
+}
