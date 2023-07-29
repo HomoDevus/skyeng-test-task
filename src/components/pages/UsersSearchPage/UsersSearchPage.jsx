@@ -18,7 +18,9 @@ export default function UsersSearchPage() {
         const page = typeof pageNum === 'number' ? pageNum : undefined
 
         usersAPI.search(searchText, sortOption, order, page).then(res => {
-          setUsers(res.data)
+          if (res) {
+            setUsers(res.data)
+          }
         })
       }
     },

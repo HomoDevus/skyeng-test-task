@@ -1,6 +1,6 @@
 import { GitHubAPI } from '.'
 import { GITHUB_HEADERS, PER_PAGE } from '../constants'
-import { getQueryParam } from '../helpers'
+import { checkAPIError, getQueryParam, handleAPIError } from '../helpers'
 
 class UsersAPI extends GitHubAPI {
   async search(userName, sort, order, pageNum) {
@@ -13,22 +13,33 @@ class UsersAPI extends GitHubAPI {
         getQueryParam('per_page', PER_PAGE),
       ].join('')
 
-      return await this.octokit.request(`GET /search/users${queryParams}`, {
-        headers: GITHUB_HEADERS,
-      })
-    } catch (e) {
-      console.error(e)
+      const res = await this.octokit.request(
+        `GET /search/users${queryParams}`,
+        {
+          headers: GITHUB_HEADERS,
+        },
+      )
+
+      checkAPIError(res)
+
+      return res
+    } catch (error) {
+      handleAPIError(error)
     }
   }
 
   async userInfo(userName) {
     try {
-      return await this.octokit.request('GET /users/{username}', {
+      const res = await this.octokit.request('GET /users/{username}', {
         username: userName,
         headers: GITHUB_HEADERS,
       })
-    } catch (e) {
-      console.error(e)
+
+      checkAPIError(res)
+
+      return res
+    } catch (error) {
+      handleAPIError(error)
     }
   }
 }
