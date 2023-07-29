@@ -1,9 +1,4 @@
 .button {
-  outline: none;
-  border: none;
-  background-color: transparent;
-  padding: 0;
   color: darkgray;
-  cursor: pointer;
   display: inline-block;
 }

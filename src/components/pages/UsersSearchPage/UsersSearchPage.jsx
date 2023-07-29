@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import userSearchAPI from '../../../api/userSearch'
+import usersAPI from '../../../api/users'
 import SearchController from '../../controllers/SearchController'
 import UsersController from '../../controllers/UsersController'
 import PaginationControls from '../../view/PaginationControls/PaginationControls'
@@ -17,7 +17,7 @@ export default function UsersSearchPage() {
         const order = sort === 1 ? 'asc' : sort === -1 ? 'desc' : ''
         const page = typeof pageNum === 'number' ? pageNum : undefined
 
-        userSearchAPI.search(searchText, sortOption, order, page).then(res => {
+        usersAPI.search(searchText, sortOption, order, page).then(res => {
           setUsers(res.data)
         })
       }

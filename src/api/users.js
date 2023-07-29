@@ -1,8 +1,8 @@
 import { GitHubAPI } from '.'
-import { PER_PAGE } from '../constants'
+import { GITHUB_HEADERS, PER_PAGE } from '../constants'
 import { getQueryParam } from '../helpers'
 
-class UserSearchAPI extends GitHubAPI {
+class UsersAPI extends GitHubAPI {
   async search(userName, sort, order, pageNum) {
     try {
       const queryParams = [
@@ -14,10 +14,18 @@ class UserSearchAPI extends GitHubAPI {
       ].join('')
 
       return await this.octokit.request(`GET /search/users${queryParams}`, {
-        headers: {
-          'X-GitHub-Api-Version': '2022-11-28',
-          Accept: 'application/vnd.github+json',
-        },
+        headers: GITHUB_HEADERS,
+      })
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  async userInfo(userName) {
+    try {
+      return await this.octokit.request('GET /users/{username}', {
+        username: userName,
+        headers: GITHUB_HEADERS,
       })
     } catch (e) {
       console.error(e)
@@ -25,6 +33,6 @@ class UserSearchAPI extends GitHubAPI {
   }
 }
 
-const userSearchAPI = new UserSearchAPI()
+const usersAPI = new UsersAPI()
 
-export default userSearchAPI
+export default usersAPI

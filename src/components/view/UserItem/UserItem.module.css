@@ -1,10 +1,32 @@
 .card {
-  display: flex;
-  align-items: center;
   padding: 1em;
-  gap: 1em;
   border: 1px solid rgb(208, 215, 222);
   border-radius: 6px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.expandButton {
+  padding: 0.4em;
+  border: 1px solid rgb(208, 215, 222);
+  border-radius: 6px;
+  min-width: 2em;
+  min-height: 2em;
+}
+
+.expandButton:hover {
+  background-color: rgba(208, 215, 222, 0.32);
+}
+
+.headerInfo {
+  display: flex;
+  gap: 1em;
+  align-items: center;
 }
 
 .card + .card {
@@ -15,4 +37,17 @@
   border-radius: 50%;
   width: 2.5em;
   height: 2.5em;
+}
+
+.description {
+  color: rgb(101, 109, 118);
+  font-size: 0.875em;
+}
+
+.additionalInfo {
+  font-size: 0.75em;
+}
+
+.body > * {
+  margin-top: 0.4em;
 }

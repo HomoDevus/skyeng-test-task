@@ -3,6 +3,16 @@
   gap: 1rem;
 }
 
+.input, .searchButton {
+  border-radius: 6px;
+  border: 1px solid rgba(31, 35, 40, 0.15);
+  padding: 0.4em 0.8em;
+}
+
 .input {
   flex: 1;
+}
+
+.searchButton {
+  background-color: rgb(246, 248, 250);
 }
