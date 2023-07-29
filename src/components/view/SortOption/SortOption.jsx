@@ -7,7 +7,7 @@ export default function SortOption({ sort, setSort }) {
 
   return (
     <button className={styles.button} onClick={handleSortClick}>
-      repositories amount{sort === 1 ? ' 🔼' : sort === -1 ? ' 🔽' : ''}
+      repositories amount{sort === 1 ? ' ▲' : sort === -1 ? ' ▼' : ''}
     </button>
   )
 }

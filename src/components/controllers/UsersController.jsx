@@ -1,8 +1,6 @@
 import UserItem from '../view/UserItem/UserItem'
 
 export default function UsersController({ usersInfo }) {
-  console.log(usersInfo)
-
   return (
     <div>
       {usersInfo?.map(userInfo => (
