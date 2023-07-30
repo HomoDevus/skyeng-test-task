@@ -1,4 +1,5 @@
 import ReactDOMClient from 'react-dom/client'
+import { act } from 'react-dom/test-utils'
 import styles from './notify.module.css'
 
 let notificationsContainerRoot
@@ -30,7 +31,9 @@ export function notify(message, level) {
 
     setTimeout(() => {
       if (notificationsContainerRoot) {
-        notificationsContainerRoot.unmount()
+        act(() => {
+          notificationsContainerRoot.unmount()
+        })
         notificationsContainerRoot = undefined
       }
     }, 5000)
