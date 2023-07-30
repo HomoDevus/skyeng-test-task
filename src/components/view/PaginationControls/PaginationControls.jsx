@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useMemo } from 'react'
 import {
   MAX_PAGES_TO_SHOW,
   MAX_SEARCH_ITEMS,
@@ -13,7 +13,7 @@ function PageButton({ pageNum, currentPage, setCurrentPage, onChange }) {
 
   return (
     <Button
-      styleType={isActivePage ? 'outlined' : 'primary'}
+      styleType={isActivePage ? 'primary' : 'outlined'}
       className={styles.pageButton}
       onClick={() => {
         onChange(pageNum)
@@ -25,26 +25,24 @@ function PageButton({ pageNum, currentPage, setCurrentPage, onChange }) {
   )
 }
 
-export default function PaginationControls({ total, onChange }) {
-  const [currentPage, setCurrentPage] = useState(1)
-
+export default function PaginationControls({ total, onChange, page, setPage }) {
   const totalPages = Math.ceil(Math.min(total, MAX_SEARCH_ITEMS) / PER_PAGE)
   const pageNumbers = useMemo(
     () => arrayOfN(totalPages, MAX_PAGES_TO_SHOW),
-    [total],
+    [totalPages],
   )
 
   const handlePrevClick = useCallback(() => {
-    if (currentPage > 1) {
-      onChange(currentPage - 1)
+    if (page > 1) {
+      onChange(page - 1)
     }
-  }, [onChange, currentPage])
+  }, [onChange, page])
 
   const handleNextClick = useCallback(() => {
-    if (currentPage < totalPages) {
-      onChange(currentPage + 1)
+    if (page < totalPages) {
+      onChange(page + 1)
     }
-  })
+  }, [page, totalPages, onChange])
 
   if (pageNumbers.length === 0) {
     return null
@@ -63,8 +61,8 @@ export default function PaginationControls({ total, onChange }) {
         <PageButton
           key={pageNum}
           pageNum={pageNum}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
+          currentPage={page}
+          setCurrentPage={setPage}
           onChange={onChange}
         />
       ))}
@@ -73,8 +71,8 @@ export default function PaginationControls({ total, onChange }) {
         <PageButton
           key={totalPages}
           pageNum={totalPages}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
+          currentPage={page}
+          setCurrentPage={setPage}
           onChange={onChange}
         />
       )}

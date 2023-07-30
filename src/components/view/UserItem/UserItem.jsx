@@ -10,7 +10,7 @@ export default function UserItem({ avatarUrl, login }) {
     if (isExpanded) {
       usersAPI.userInfo(login).then(res => setUserInfo(res.data))
     }
-  }, [isExpanded])
+  }, [isExpanded, login])
 
   return (
     <div className={styles.card}>

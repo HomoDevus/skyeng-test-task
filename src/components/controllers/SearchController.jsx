@@ -12,8 +12,10 @@ export default function SearchController({
   const [isSearchClicked, setIsSearchClicked] = useState(false) // Preventing search on sort toggle before search button was clicked
 
   useEffect(() => {
-    if (isSearchClicked) handleSearchSubmit()
-  }, [sort, isSearchClicked])
+    if (isSearchClicked) {
+      handleSearchSubmit()
+    }
+  }, [sort, handleSearchSubmit])
 
   return (
     <div>

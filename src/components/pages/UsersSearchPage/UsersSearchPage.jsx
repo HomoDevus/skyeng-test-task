@@ -9,23 +9,20 @@ export default function UsersSearchPage() {
   const [users, setUsers] = useState(null)
   const [searchText, setSearchText] = useState('')
   const [sort, setSort] = useState(0) // 0: no sort; 1: ascending; -1: descending;
+  const [page, setPage] = useState(1)
 
-  const handleSearchSubmit = useCallback(
-    pageNum => {
-      if (searchText.length >= 3) {
-        const sortOption = sort === 1 || sort === -1 ? 'repositories' : ''
-        const order = sort === 1 ? 'asc' : sort === -1 ? 'desc' : ''
-        const page = typeof pageNum === 'number' ? pageNum : undefined
+  const handleSearchSubmit = useCallback(() => {
+    if (searchText.length >= 3) {
+      const sortOption = sort === 1 || sort === -1 ? 'repositories' : ''
+      const order = sort === 1 ? 'asc' : sort === -1 ? 'desc' : ''
 
-        usersAPI.search(searchText, sortOption, order, page).then(res => {
-          if (res) {
-            setUsers(res.data)
-          }
-        })
-      }
-    },
-    [searchText, sort, setUsers],
-  )
+      usersAPI.search(searchText, sortOption, order, page).then(res => {
+        if (res) {
+          setUsers(res.data)
+        }
+      })
+    }
+  }, [searchText, sort, setUsers, page])
 
   return (
     <div className={styles.pageContainer}>
@@ -43,6 +40,8 @@ export default function UsersSearchPage() {
         <PaginationControls
           onChange={handleSearchSubmit}
           total={users?.total_count}
+          page={page}
+          setPage={setPage}
         />
       </div>
     </div>
