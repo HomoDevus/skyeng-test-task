@@ -1,9 +1,14 @@
 .container, .button {
   font-size: 0.875rem;
-  color: darkgray;
+  color: rgb(101, 109, 118);
   margin-top: 0.4em;
+  transition: color linear 0.1s;
 }
 
 .button {
   text-decoration: underline;
+}
+
+.button:hover {
+  color: rgb(0, 0, 0);
 }
