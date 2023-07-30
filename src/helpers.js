@@ -1,4 +1,4 @@
-import { notify } from "./components/common/notify/notify"
+import { notify } from './components/common/notify/notify'
 
 export function arrayOfN(n, max = Infinity) {
   const result = []

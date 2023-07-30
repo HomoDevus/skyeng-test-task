@@ -1,12 +1,12 @@
 .notification {
-    position: sticky;
-    max-width: 30vw;
-    padding: 0.4em 1em;
+  position: sticky;
+  max-width: 30vw;
+  padding: 0.4em 1em;
 }
 
 .error {
-    background-color: rgba(255, 77, 79, 0.32);
-    color: rgb(255, 77, 79);
-    border-radius: 6px;
-    border: 1px solid rgb(255, 77, 79);
+  background-color: rgba(255, 77, 79, 0.32);
+  color: rgb(255, 77, 79);
+  border-radius: 6px;
+  border: 1px solid rgb(255, 77, 79);
 }
