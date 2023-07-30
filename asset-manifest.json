@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/skyeng-test-task/static/css/main.9fd70e56.css",
-    "main.js": "/skyeng-test-task/static/js/main.bd35bd79.js",
+    "main.js": "/skyeng-test-task/static/js/main.cdff71ac.js",
     "static/js/787.724dffc4.chunk.js": "/skyeng-test-task/static/js/787.724dffc4.chunk.js",
     "index.html": "/skyeng-test-task/index.html",
     "main.9fd70e56.css.map": "/skyeng-test-task/static/css/main.9fd70e56.css.map",
-    "main.bd35bd79.js.map": "/skyeng-test-task/static/js/main.bd35bd79.js.map",
+    "main.cdff71ac.js.map": "/skyeng-test-task/static/js/main.cdff71ac.js.map",
     "787.724dffc4.chunk.js.map": "/skyeng-test-task/static/js/787.724dffc4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9fd70e56.css",
-    "static/js/main.bd35bd79.js"
+    "static/js/main.cdff71ac.js"
   ]
 }
