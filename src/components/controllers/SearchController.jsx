@@ -20,9 +20,7 @@ export default function SearchController({
         value={searchText}
         onChange={e => setSearchText(e.target.value)}
       />
-      <div>
-        Filters: <SortOption sort={sort} setSort={setSort} />
-      </div>
+      <SortOption sort={sort} setSort={setSort} isFirstChild={true} />
     </div>
   )
 }
