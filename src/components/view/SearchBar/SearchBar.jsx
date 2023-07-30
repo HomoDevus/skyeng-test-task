@@ -1,3 +1,4 @@
+import Button from '../../common/Button/Button'
 import styles from './SearchBar.module.css'
 
 export default function SearchBar({ handleSearchSubmit, ...inputProps }) {
@@ -8,13 +9,14 @@ export default function SearchBar({ handleSearchSubmit, ...inputProps }) {
       onSubmit={e => e.preventDefault()}
     >
       <input className={styles.input} type='text' id='search' {...inputProps} />
-      <button
+      <Button
+        styleType={'secondary'}
         className={styles.searchButton}
         type='submit'
         onClick={handleSearchSubmit}
       >
         🔍 Search
-      </button>
+      </Button>
     </form>
   )
 }

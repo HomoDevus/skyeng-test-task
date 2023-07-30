@@ -5,21 +5,23 @@ import {
   PER_PAGE,
 } from '../../../constants'
 import { arrayOfN } from '../../../helpers'
+import Button from '../../common/Button/Button'
 import styles from './PaginationControls.module.css'
 
 function PageButton({ pageNum, currentPage, setCurrentPage, onChange }) {
+  const isActivePage = currentPage === pageNum
+
   return (
-    <button
-      className={`${styles.pageButton} ${
-        currentPage === pageNum ? styles.activePage : ''
-      }`}
+    <Button
+      styleType={isActivePage ? 'outlined' : 'primary'}
+      className={styles.pageButton}
       onClick={() => {
         onChange(pageNum)
         setCurrentPage(pageNum)
       }}
     >
       {pageNum}
-    </button>
+    </Button>
   )
 }
 
@@ -50,9 +52,13 @@ export default function PaginationControls({ total, onChange }) {
 
   return (
     <div className={styles.container}>
-      <button className={styles.pageButton} onClick={handlePrevClick}>
+      <Button
+        styleType='outlined'
+        className={styles.pageButton}
+        onClick={handlePrevClick}
+      >
         ◀
-      </button>
+      </Button>
       {pageNumbers.slice(0, MAX_PAGES_TO_SHOW).map(pageNum => (
         <PageButton
           key={pageNum}
@@ -72,9 +78,13 @@ export default function PaginationControls({ total, onChange }) {
           onChange={onChange}
         />
       )}
-      <button className={styles.pageButton} onClick={handleNextClick}>
+      <Button
+        styleType='outlined'
+        className={styles.pageButton}
+        onClick={handleNextClick}
+      >
         ▶
-      </button>
+      </Button>
     </div>
   )
 }

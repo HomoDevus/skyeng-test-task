@@ -7,17 +7,6 @@
 
 .pageButton {
     padding: 0.4em;
-    border: 1px solid rgb(208, 215, 222);
-    border-radius: 6px;
     min-width: 2em;
     min-height: 2em;
-}
-
-.pageButton:not(.activePage):hover {
-    background-color: rgba(208, 215, 222, 0.32);
-}
-
-.pageButton.activePage {
-    background-color: rgb(9, 105, 218);
-    color: rgb(255, 255, 255);
 }

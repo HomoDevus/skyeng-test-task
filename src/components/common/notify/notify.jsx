@@ -1,5 +1,7 @@
-import ReactDOM from 'react-dom'
+import ReactDOMClient from 'react-dom/client'
 import styles from './notify.module.css'
+
+let notificationsContainerRoot
 
 function Notification({ level, children }) {
   return (
@@ -15,13 +17,22 @@ export function notify(message, level) {
   )
 
   if (notificationsContainerElement && level === 'error') {
-    ReactDOM.render(
-      <Notification level={level}>{message}</Notification>,
+    if (notificationsContainerRoot) {
+      notificationsContainerRoot.unmount()
+    }
+
+    notificationsContainerRoot = ReactDOMClient.createRoot(
       notificationsContainerElement,
+    )
+    notificationsContainerRoot.render(
+      <Notification level={level}>{message}</Notification>,
     )
 
     setTimeout(() => {
-      ReactDOM.unmountComponentAtNode(notificationsContainerElement)
+      if (notificationsContainerRoot) {
+        notificationsContainerRoot.unmount()
+        notificationsContainerRoot = undefined
+      }
     }, 5000)
   }
 }
